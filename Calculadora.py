@@ -20,3 +20,13 @@ def limpiar():
     global expresion
     expresion = ""
     entrada_texto.set("")
+
+def calcular():
+    global expresion
+    try:
+        resultado = str(eval(expresion))
+        entrada_texto.set(resultado)
+        expresion = resultado
+    except:
+        entrada_texto.set("Error")
+        expresion = ""
