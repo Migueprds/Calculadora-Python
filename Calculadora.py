@@ -15,3 +15,8 @@ def presionar(num):
  global expresion
  expresion += str(num)
  entrada_texto.set(expresion)
+
+def limpiar():
+    global expresion
+    expresion = ""
+    entrada_texto.set("")
