@@ -1,4 +1,4 @@
-import tkinker as tk 
+import tkinter as tk 
 
 ventana = tk.Tk()
 ventana.tittle("Calculadora Basica")
