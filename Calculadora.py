@@ -11,6 +11,35 @@ entrada.grid(row=0, column=0, columnspan=5, padx=10, pady=10)
 
 expresion = ""
 
+def factorial(n):
+    if n < 0:
+        return 1
+    r = 1
+    for i in range(1, n+1):
+        r *= i
+    return r
+
+def potencia(x, n):
+    r = 1
+    for _ in range(n):
+        r *= x
+    return r
+
+def pi():
+    s = 0
+    for k in range(2000):
+        s += ((-1)**k) / (2*k + 1)
+    return 4*s
+
+def exp(x):
+    s = 0
+    for n in range(25):
+        s += potencia(x, n) / factorial(n)
+    return s
+
+
+
+
 def presionar(num):
  global expresion
  expresion += str(num)
