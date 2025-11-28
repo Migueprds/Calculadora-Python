@@ -1,13 +1,13 @@
 import tkinter as tk 
 
 ventana = tk.Tk()
-ventana.title("Calculadora Basica")
-ventana.geometry("1000x350")
+ventana.title("Calculadora Cientifica")
+ventana.geometry("450x650")
 ventana.resizable(False, False)
 
 entrada_texto = tk.StringVar()
 entrada = tk.Entry(ventana, textvariable=entrada_texto, font=("Arial", 20), justify="right", bd=10)
-entrada.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+entrada.grid(row=0, column=0, columnspan=5, padx=10, pady=10)
 
 expresion = ""
 
