@@ -39,12 +39,11 @@ botones = [
  ('0', 4, 0), ('.', 4, 1), ('=', 4, 2), ('+', 4, 3)
  ]
 for (texto, fila, columna) in botones:
-  if texto == '=':
-   tk.Button(ventana, text=texto, command=calcular,
-  width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
- else:
-  tk.Button(ventana, text=texto, command=lambda t=texto:
-  presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
-  tk.Button(ventana, text="C", command=limpiar, width=10, height=2, bg="red", fg="white").grid(row=5, column=0, columnspan=4, padx=5, pady=5, sticky="we")
-  ventana.mainloop()
+    if texto == '=':
+        tk.Button(ventana, text=texto, command=calcular, width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
+    else:
+        tk.Button(ventana, text=texto, command=lambda t=texto: presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
 
+tk.Button(ventana, text="C", command=limpiar, width=10, height=2, bg="red", fg="white").grid(row=5, column=0, columnspan=4, padx=5, pady=5, sticky="we")
+
+ventana.mainloop()
