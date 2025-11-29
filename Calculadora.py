@@ -76,6 +76,28 @@ def tangente(x):
         return float("nan")
     return seno(x) / c
 
+def arctan(x):
+    s = 0
+    for n in range(50):
+        s += ((-1)**n) * potencia(x, 2*n+1) / (2*n+1)
+    return s
+
+def arcsen(x):
+    if x < -1 or x > 1:
+        return float("nan")
+    return arctan(x / ((1 - x*x)**0.5))
+
+def arccos(x):
+    return (pi()/2) - arcsen(x)
+
+def pow_real(x, y):
+    return exp(y * ln(x))
+
+def inv(x):
+    if x == 0:
+        return float("inf")
+    return 1/x
+
 
 
 
