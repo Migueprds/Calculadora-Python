@@ -126,28 +126,28 @@ def calcular():
         expresion = ""
 
      
-# Botones
-botones = [
- ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
- ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
- ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
- ('0', 4, 0), ('.', 4, 1), ('=', 4, 2), ('+', 4, 3)
- ]
-for (texto, fila, columna) in botones:
-    if texto == '=':
-        tk.Button(ventana, text=texto, command=calcular, width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
-    else:
-        tk.Button(ventana, text=texto, command=lambda t=texto: presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
-
-tk.Button(ventana, text="C", command=limpiar, width=10, height=2, bg="red", fg="white").grid(row=5, column=0, columnspan=4, padx=5, pady=5, sticky="we")
-
-
 botones_cientificos = [
     ('seno(', 1, 0), ('coseno(', 1, 1), ('tangente(', 1, 2), ('pi()', 1, 3), ('exp(', 1, 4),
     ('ln(', 2, 0), ('inv(', 2, 1), ('pow(', 2, 2), ('arcsen(', 2, 3), ('arccos(', 2, 4),
     ('arctan(', 3, 0), ('(', 3, 1), (')', 3, 2)
 ]
+
 for (texto, fila, columna) in botones_cientificos:
     tk.Button(ventana, text=texto, command=lambda t=texto: presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
-    
+
+botones_basicos = [
+    ('7', 4, 0), ('8', 4, 1), ('9', 4, 2), ('/', 4, 3),
+    ('4', 5, 0), ('5', 5, 1), ('6', 5, 2), ('*', 5, 3),
+    ('1', 6, 0), ('2', 6, 1), ('3', 6, 2), ('-', 6, 3),
+    ('0', 7, 0), ('.', 7, 1), ('=', 7, 2), ('+', 7, 3)
+]
+
+for (texto, fila, columna) in botones_basicos:
+    if texto == '=':
+        tk.Button(ventana, text=texto, command=calcular, width=10, height=2, bg="green").grid(row=fila, column=columna, padx=5, pady=5)
+    else:
+        tk.Button(ventana, text=texto, command=lambda t=texto: presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
+
+tk.Button(ventana, text="C", command=limpiar, width=40, height=2, bg="red", fg="white").grid(row=8, column=0, columnspan=5, padx=5, pady=5)
+
 ventana.mainloop()
