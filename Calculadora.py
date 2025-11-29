@@ -50,6 +50,36 @@ def limpiar():
     expresion = ""
     entrada_texto.set("")
 
+def ln(x):
+    if x <= 0:
+        return float("nan")
+    y = x - 1
+    for _ in range(40):
+        y = y - (exp(y) - x) / exp(y)
+    return y
+
+def seno(x):
+    s = 0
+    for n in range(12):
+        s += ((-1)**n) * potencia(x, 2*n+1) / factorial(2*n+1)
+    return s
+
+def coseno(x):
+    s = 0
+    for n in range(12):
+        s += ((-1)**n) * potencia(x, 2*n) / factorial(2*n)
+    return s
+
+def tangente(x):
+    c = coseno(x)
+    if c == 0:
+        return float("nan")
+    return seno(x) / c
+
+
+
+
+
 def calcular():
     global expresion
     try:
