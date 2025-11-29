@@ -53,12 +53,26 @@ def limpiar():
 def calcular():
     global expresion
     try:
-        resultado = str(eval(expresion))
+        resultado = str(eval(expresion, {
+            "seno": seno,
+            "coseno": coseno,
+            "tangente": tangente,
+            "arcsen": arcsen,
+            "arccos": arccos,
+            "arctan": arctan,
+            "exp": exp,
+            "ln": ln,
+            "inv": inv,
+            "pow": pow_real,
+            "pi": pi,
+            "__builtins__": {}
+        }))
         entrada_texto.set(resultado)
         expresion = resultado
     except:
         entrada_texto.set("Error")
         expresion = ""
+
      
 # Botones
 botones = [
@@ -75,4 +89,13 @@ for (texto, fila, columna) in botones:
 
 tk.Button(ventana, text="C", command=limpiar, width=10, height=2, bg="red", fg="white").grid(row=5, column=0, columnspan=4, padx=5, pady=5, sticky="we")
 
+
+botones_cientificos = [
+    ('seno(', 1, 0), ('coseno(', 1, 1), ('tangente(', 1, 2), ('pi()', 1, 3), ('exp(', 1, 4),
+    ('ln(', 2, 0), ('inv(', 2, 1), ('pow(', 2, 2), ('arcsen(', 2, 3), ('arccos(', 2, 4),
+    ('arctan(', 3, 0), ('(', 3, 1), (')', 3, 2)
+]
+for (texto, fila, columna) in botones_cientificos:
+    tk.Button(ventana, text=texto, command=lambda t=texto: presionar(t), width=10, height=2).grid(row=fila, column=columna, padx=5, pady=5)
+    
 ventana.mainloop()
